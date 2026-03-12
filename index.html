@@ -139,6 +139,49 @@ section{padding:95px 5%}
 .tmi h5{font-size:.71rem;font-weight:500;color:white;margin-bottom:.18rem}
 .tmi p{font-size:.63rem;font-weight:300;color:rgba(255,255,255,.45);line-height:1.5}
 
+/* ── TABLE OUVERTE ────────────────────────────── */
+#tableouverte{background:var(--linen);padding:90px 5%}
+.to-wrap{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center}
+.to-txt .sl2{margin-bottom:.8rem}
+.to-txt .sb{margin-bottom:2rem}
+.to-badge{display:inline-flex;align-items:center;gap:10px;background:var(--terra);color:white;padding:9px 18px;border-radius:30px;font-size:.68rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;margin-bottom:2rem}
+.to-badge span{font-size:1rem}
+.to-creneaux{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
+.to-cr{display:flex;align-items:center;gap:1rem;background:white;border:1px solid var(--stone);border-radius:4px;padding:.85rem 1.2rem;transition:border-color .2s}
+.to-cr:hover{border-color:var(--terra)}
+.to-cr-day{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);min-width:130px}
+.to-cr-info{font-size:.8rem;font-weight:300;color:var(--muted);line-height:1.5}
+.to-cr-icon{font-size:1.1rem;margin-left:auto}
+.to-cap{display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;background:var(--terra-p);border-radius:4px;border-left:3px solid var(--terra);margin-bottom:2rem}
+.to-cap p{font-size:.78rem;font-weight:300;color:var(--terra);line-height:1.55}
+.to-cap span{font-size:1.1rem;flex-shrink:0}
+.to-right{display:flex;flex-direction:column;gap:1.1rem}
+.to-card{background:white;border-radius:6px;padding:2rem;box-shadow:0 6px 32px rgba(168,60,22,.08);border:1px solid var(--stone)}
+.to-card-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--black);margin-bottom:.6rem}
+.to-card-title em{font-style:italic;color:var(--terra)}
+.to-card p{font-size:.82rem;font-weight:300;line-height:1.85;color:var(--muted);margin-bottom:1.2rem}
+.to-features{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.3rem}
+.to-feat{font-size:.65rem;letter-spacing:.07em;background:var(--terra-p);color:var(--terra);padding:4px 10px;border-radius:20px}
+.to-price-row{display:flex;align-items:baseline;gap:.6rem;padding-top:1rem;border-top:1px solid var(--stone)}
+.to-pn{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--terra)}
+.to-pl{font-size:.71rem;color:var(--muted);font-weight:300;line-height:1.4}
+.to-note{font-size:.73rem;font-weight:300;font-style:italic;color:var(--muted);margin-top:1rem;padding:1rem;background:var(--stone);border-radius:4px;line-height:1.65}
+.to-contact-block{margin-top:1.6rem;display:flex;flex-direction:column;gap:.55rem}
+.to-contact-title{font-size:.63rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--terra);margin-bottom:.3rem}
+.to-contact-item{display:inline-flex;align-items:center;gap:.7rem;font-size:.86rem;font-weight:400;color:var(--black);text-decoration:none;background:white;border:1px solid var(--stone);padding:.6rem 1rem;border-radius:4px;transition:border-color .2s,color .2s;width:fit-content}
+.to-contact-item:hover{border-color:var(--terra);color:var(--terra)}
+.to-menu{display:flex;flex-direction:column;gap:.55rem;margin:.9rem 0 1.3rem;padding:.9rem 1rem;background:var(--linen);border-radius:4px}
+.to-menu-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.81rem;font-weight:300;color:var(--muted);line-height:1.5}
+.to-menu-dot{color:var(--terra);font-size:.65rem;margin-top:.18rem;flex-shrink:0}
+.to-menu-plus{border-top:1px dashed var(--stone);padding-top:.55rem;margin-top:.2rem;font-style:italic}
+.to-card-drinks{margin-top:0}
+.to-drinks{display:flex;flex-direction:column;gap:.7rem;margin-top:.8rem}
+.to-drink{display:flex;align-items:flex-start;gap:.85rem;font-size:.81rem}
+.to-drink span:first-child{font-size:1.2rem;flex-shrink:0;margin-top:.05rem}
+.to-drink div{display:flex;flex-direction:column;gap:.1rem}
+.to-drink strong{font-weight:500;color:var(--black);font-size:.81rem}
+.to-drink div span{font-size:.73rem;font-weight:300;color:var(--muted)}
+
 /* ── DISTINCTIONS ─────────────────────────────── */
 #dist{background:var(--terra);padding:46px 5%}
 .di{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
@@ -284,6 +327,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
   .haw{gap:.8rem}
   .hero-logo-main{width:100vw}
   .afs{grid-template-columns:1fr}
+  .to-wrap{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -298,6 +342,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
 <ul class="nl">
   <li><a href="#chambres">Chambres</a></li>
   <li><a href="#table">Table d'hôtes</a></li>
+  <li><a href="#tableouverte">Table ouverte</a></li>
   <li><a href="#dest">Alentours</a></li>
   <li><a href="#apropos">La maison</a></li>
   <li><a href="#contact" class="nc">Réserver</a></li>
@@ -503,7 +548,8 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
   <div class="tr2 rv">
     <img class="tr2-logo" src="images/logo_carre.png" alt=""/>
     <div class="tv">
-      <p class="tq">La table d'hôtes était le clou du séjour — des saveurs authentiques, une générosité rare et une ambiance inoubliable.</p>
+      <p class="tq">Très bon moment lors de nos 2 dîners durant nos vacances ; la cuisine est top avec de très bons produits ; rapport qualité-prix excellant dans un cadre fort agréable. Nous recommandons sans hésiter et y retournerons avec grand plaisir.</p>
+      <p style="font-size:.68rem;color:rgba(255,255,255,.45);font-weight:300;text-align:center;margin-top:-.4rem;">— Matt Dctr · Avis vérifié</p>
       <div class="tmg">
         <div class="tmi"><div class="tmii">🌅</div><h5>Petit-déjeuner</h5><p>Inclus · Fait maison chaque matin</p></div>
         <div class="tmi"><div class="tmii">🍽️</div><h5>Dîner table d'hôtes</h5><p>25€/pers · Boissons en sus</p></div>
@@ -511,6 +557,57 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
         <div class="tmi"><div class="tmii">🛒</div><h5>Épicerie fine</h5><p>Produits locaux &amp; fabrications maison</p></div>
       </div>
       <a href="#contact" class="btn bp" style="margin-top:.4rem;">Réserver la table</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- TABLE OUVERTE -->
+<section id="tableouverte">
+<div class="to-wrap">
+  <div class="to-txt rv">
+    <div class="sl2">Nouveauté</div>
+    <h2 class="st">La <em>Table Ouverte</em><br>le week-end</h2>
+    <p class="sb">Le temps du week-end, notre table s'ouvre à tous — résidents et visiteurs de passage. Venez partager un repas convivial dans l'esprit de la maison : produits du terroir, cuisine maison et atmosphère chaleureuse.</p>
+    <div class="to-badge"><span>🪑</span> 30 couverts maximum</div>
+    <div class="to-creneaux">
+      <div class="to-cr">
+        <span class="to-cr-day">Vendredi soir</span>
+        <span class="to-cr-info">Dîner · à partir de 19h00</span>
+        <span class="to-cr-icon">🌙</span>
+      </div>
+      <div class="to-cr">
+        <span class="to-cr-day">Samedi soir</span>
+        <span class="to-cr-info">Dîner · à partir de 19h00</span>
+        <span class="to-cr-icon">🌙</span>
+      </div>
+      <div class="to-cr">
+        <span class="to-cr-day">Dimanche midi</span>
+        <span class="to-cr-info">Déjeuner · à partir de 12h00</span>
+        <span class="to-cr-icon">☀️</span>
+      </div>
+    </div>
+    <div class="to-cap"><span>💡</span><p>Réservation <strong>conseillée</strong>.</p></div>
+    <div class="to-contact-block">
+      <div class="to-contact-title">Réserver ou renseigner</div>
+      <a href="tel:0581716077" class="to-contact-item"><span>📞</span><span>05 81 71 60 77</span></a>
+      <a href="mailto:contact@maisonembellie.fr" class="to-contact-item"><span>✉️</span><span>contact@maisonembellie.fr</span></a>
+    </div>
+  </div>
+  <div class="to-right rv">
+    <div class="to-card">
+      <div class="to-card-title">Menu <em>table d'hôtes</em></div>
+      <p>Même esprit que notre table du soir — cuisine sincère et généreuse, produits du Lot, de Corrèze et du Cantal. Un menu unique qui change selon les saisons et l'inspiration du jour.</p>
+      <div class="to-menu">
+        <div class="to-menu-item"><span class="to-menu-dot">✦</span><span>Entrée du moment</span></div>
+        <div class="to-menu-item"><span class="to-menu-dot">✦</span><span>Plat principal · viande ou poisson du terroir</span></div>
+        <div class="to-menu-item"><span class="to-menu-dot">✦</span><span>Dessert maison</span></div>
+        <div class="to-menu-item to-menu-plus"><span class="to-menu-dot">+</span><span>Suggestions du jour selon arrivages</span></div>
+      </div>
+      <div class="to-price-row">
+        <span class="to-pn">27€</span>
+        <span class="to-pl">par personne<br>boissons en sus</span>
+      </div>
     </div>
   </div>
 </div>
@@ -560,11 +657,11 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
   <div class="apl">
     <img src="images/ext01.jpg" alt="Maison L'Embellie" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:4px"/>
   </div>
-  <div class="abg"><span class="abgn">★ 4,8</span><span class="abgl">Note<br>Google</span></div>
+  <div class="abg"><span class="abgn">4,8/5</span><span class="abgl">Note<br>Google</span></div>
 </div>
 <div class="rv">
   <div class="sl2">La maison</div>
-  <h2 class="st">L'accueil comme<br>une <em>seconde famille</em></h2>
+  <h2 class="st">L'accueil comme<br>une <em>seconde nature</em></h2>
   <p class="sb">Nichée à Gagnac-sur-Cère, la Maison L'Embellie c'est avant tout une rencontre. Vos hôtes vous accueillent avec chaleur, partagent leurs bonnes adresses et veillent à ce que chaque instant soit mémorable.</p>
   <p class="sb" style="margin-top:1rem;">Un excellent rapport qualité-prix unanimement salué : chambres soignées, table généreuse, conseils avisés — et un vrai sourire en prime.</p>
   <div class="afs">
@@ -586,7 +683,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
 <div class="dfeat rv">
   <div class="dfi" style="background:linear-gradient(135deg,#3d1f08,#6b3515);">
     <div class="dfiic">⛪</div><div class="dfin">Rocamadour</div><div class="dfid">À 34 km · ~40 min</div>
-      </div>
+  </div>
   <div class="dfb">
     <div class="sl2">Site incontournable</div><h3>Rocamadour</h3>
     <p>Cité médiévale suspendue à flanc de falaise, l'un des sites les plus visités de France. Sanctuaire marial mondialement connu, ses ruelles pavées et sa vue vertigineuse sur la vallée de l'Alzou laissent une impression impérissable.</p>
@@ -601,7 +698,6 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
   </div>
   <div class="dfi" style="order:2;background:linear-gradient(135deg,#0a1a2e,#0e2840);">
     <div class="dfiic">🕳️</div><div class="dfin">Gouffre de Padirac</div><div class="dfid">À 20 km · ~25 min</div>
-   
   </div>
 </div>
 <div class="pmvh rv">
@@ -629,7 +725,6 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
     </div>
     <div class="ts">
       <h4>Ce que disent nos voyageurs</h4>
-      <div class="tst"><div class="tss">★★★★★</div><p>Très bon moment lors de nos 2 dîners durant nos vacances ; la cuisine est top avec de très bons produits ; rapport qualité-prix excellant dans un cadre fort agréable. Nous recommandons sans hésiter et y retournerons avec grand plaisir.</p><div class="ta">— Matt Dctr · Avis vérifié</div></div>
       <div class="tst"><div class="tss">★★★★★</div><p>Accueil parfait, chambre magnifique, rapport qualité-prix imbattable. Un vrai coup de cœur, on reviendra sans hésiter !</p><div class="ta">— Pierre &amp; Éléonore · Airbnb · 2024</div></div>
       <div class="tst"><div class="tss">★★★★★</div><p>Dès notre arrivée dans cet agréable village, Raphaële et Alexis nous ont chaleureusement accueillis. La visite des locaux dénote une excellente propreté. Simple, la décoration des chambres spacieuses est réalisée avec beaucoup de goût. Après un séjour de quelques jours, nous avons particulièrement apprécié le couchage très confortable et des repas excellents, proposés et servis avec beaucoup d'attention. Les compétences et l'affabilité de nos hôtes sont remarquables, merci à tous les deux.</p><div class="ta">— Roger · Avis vérifié</div></div>
       <div class="tst"><div class="tss">★★★★★</div><p>This is a real hidden gem in a beautiful location. The food was superb all made from local ingredients, and the owners are very friendly and welcoming.</p><div class="ta">— A.J · Avis vérifié</div></div>
