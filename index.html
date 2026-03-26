@@ -630,7 +630,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
     <div class="to-contact-block">
       <div class="to-contact-title">Réserver ou renseigner</div>
       <a href="tel:0581716077" class="to-contact-item"><span>📞</span><span>05 81 71 60 77</span></a>
-      <a href="/cdn-cgi/l/email-protection#1e737f776d7170727b737c7b7272777b5e79737f7772307d7173" class="to-contact-item"><span>✉️</span><span><span class="__cf_email__" data-cfemail="5c313d352f33323039313e39303035391c3b313d3530723f3331">[email&#160;protected]</span></span></a>
+      <span class="to-contact-item" id="email-link-1"><span>✉️</span><span>maisonlembellie@gmail.com</span></span>
     </div>
   </div>
   <div class="to-right rv">
@@ -759,7 +759,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
     <div class="cds">
       <div class="cd"><div class="cdi">📍</div><div class="cdt"><h4>Adresse</h4><p>Gagnac-sur-Cère, 46130 · Lot</p></div></div>
       <div class="cd"><div class="cdi">📞</div><div class="cdt"><h4>Téléphone</h4><p>05 81 71 60 77</p></div></div>
-      <div class="cd"><div class="cdi">✉️</div><div class="cdt"><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection#ff929e968c9091939a929d9a9393969abf98929e9693d19c9092" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="e78a868e9488898b828a85828b8b8e82a7808a868e8bc984888a">[email&#160;protected]</span></a></p></div></div>
+      <div class="cd"><div class="cdi">✉️</div><div class="cdt"><h4>Email</h4><p><span id="email-link-2" style="color:inherit;text-decoration:none;cursor:pointer;">maisonlembellie@gmail.com</span></p></div></div>
       <div class="cd"><div class="cdi">🗓️</div><div class="cdt"><h4>Saison</h4><p>Avril → Octobre · Hors saison sur demande</p></div></div>
     </div>
     <div class="ts">
@@ -823,7 +823,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
       </div>
       <div class="fg"><label for="msg">Message</label><textarea id="msg" name="message" placeholder="Anniversaire, régimes, arrivée tardive, randonnée…"></textarea></div>
       <button type="submit" class="fsub">Envoyer ma demande ✦</button>
-      <p style="text-align:center;margin-top:1.1rem;font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.7;">Vous pouvez aussi nous écrire directement à<br><a href="/cdn-cgi/l/email-protection#781519110b1716141d151a1d1414111d381f15191114561b1715" style="color:var(--terra);font-weight:500;text-decoration:none;"><span class="__cf_email__" data-cfemail="89e4e8e0fae6e7e5ece4ebece5e5e0ecc9eee4e8e0e5a7eae6e4">[email&#160;protected]</span></a></p>
+      <p style="text-align:center;margin-top:1.1rem;font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.7;">Vous pouvez aussi nous écrire directement à<br><span id="email-link-3" style="color:var(--terra);font-weight:500;text-decoration:none;cursor:pointer;">maisonlembellie@gmail.com</span></p>
     </form>
     <div class="fsucc" id="fs"><div class="fsi">🌼</div><h4>Merci pour votre demande !</h4><p>Nous vous répondrons dans les 24h pour confirmer votre séjour à la Maison L'Embellie. À très bientôt dans le Lot !</p></div>
   </div>
@@ -979,6 +979,21 @@ async function handleSubmit(e) {
     btn.disabled = false;
   }
 }
+// Email links — construction dynamique pour éviter l'obfuscation Cloudflare
+(function(){
+  const u='maisonlembellie', d='gmail.com', m='mailto:'+u+'@'+d;
+  [1,2,3].forEach(function(i){
+    const el=document.getElementById('email-link-'+i);
+    if(!el) return;
+    const a=document.createElement('a');
+    a.href=m;
+    a.textContent=u+'@'+d;
+    a.style.cssText=el.style.cssText;
+    if(el.className) a.className=el.className;
+    el.parentNode.replaceChild(a,el);
+  });
+})();
+
 const t = new Date().toISOString().split('T')[0];
 document.getElementById('arrivee').min = t;
 document.getElementById('depart').min = t;
