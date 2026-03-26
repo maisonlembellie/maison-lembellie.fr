@@ -139,6 +139,25 @@ section{padding:95px 5%}
 .tmi h5{font-size:.71rem;font-weight:500;color:white;margin-bottom:.18rem}
 .tmi p{font-size:.63rem;font-weight:300;color:rgba(255,255,255,.45);line-height:1.5}
 
+/* ── DIAPORAMA TABLE D'HÔTES ──────────────────── */
+.t-slider{position:relative;width:100%;height:100%;min-height:600px;overflow:hidden}
+.t-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease;background-size:cover;background-position:center}
+.t-slide.active{opacity:1}
+.t-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.t-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72) 0%,rgba(0,0,0,.1) 55%,transparent 100%);z-index:1;pointer-events:none}
+.t-caption{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:2rem 2.2rem 1.8rem}
+.t-caption .tq{font-size:clamp(.9rem,1.4vw,1.15rem);padding:0;margin-bottom:.6rem}
+.t-caption .tq::before{top:10px;left:-4px;font-size:3.5rem}
+.t-caption-author{font-size:.65rem;color:rgba(255,255,255,.45);font-weight:300;text-align:center}
+.t-dots{position:absolute;bottom:1rem;right:1.4rem;z-index:3;display:flex;gap:6px}
+.t-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);border:none;cursor:pointer;transition:background .3s,transform .3s;padding:0}
+.t-dot.active{background:var(--terra);transform:scale(1.3)}
+.t-arr{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(0,0,0,.28);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.2);color:white;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,transform .25s;font-size:1.1rem;line-height:1;user-select:none}
+.t-arr:hover{background:rgba(168,60,22,.6);transform:translateY(-50%) scale(1.08)}
+.t-arr.prev{left:14px}
+.t-arr.next{right:14px}
+.t-counter{position:absolute;top:1.1rem;left:1.3rem;z-index:3;font-size:.62rem;font-weight:500;letter-spacing:.12em;color:rgba(255,255,255,.55);background:rgba(0,0,0,.28);backdrop-filter:blur(4px);padding:4px 10px;border-radius:20px}
+
 /* ── TABLE OUVERTE ────────────────────────────── */
 #tableouverte{background:var(--linen);padding:90px 5%}
 .to-wrap{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center}
@@ -545,18 +564,38 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
       <span style="font-size:.73rem;color:rgba(255,255,255,.42);font-weight:300;line-height:1.7;">Sur réservation la veille<br>Petit-déjeuner inclus chaque matin</span>
     </div>
   </div>
-  <div class="tr2 rv">
-    <img class="tr2-logo" src="images/logo_carre.png" alt=""/>
-    <div class="tv">
-      <p class="tq">Très bon moment lors de nos 2 dîners durant nos vacances ; la cuisine est top avec de très bons produits ; rapport qualité-prix excellant dans un cadre fort agréable. Nous recommandons sans hésiter et y retournerons avec grand plaisir.</p>
-      <p style="font-size:.68rem;color:rgba(255,255,255,.45);font-weight:300;text-align:center;margin-top:-.4rem;">— Matt Dctr · Avis vérifié</p>
-      <div class="tmg">
-        <div class="tmi"><div class="tmii">🌅</div><h5>Petit-déjeuner</h5><p>Inclus · Fait maison chaque matin</p></div>
-        <div class="tmi"><div class="tmii">🍽️</div><h5>Dîner table d'hôtes</h5><p>25€/pers · Boissons en sus</p></div>
-        <div class="tmi"><div class="tmii">🧺</div><h5>Pique-nique</h5><p>Panier préparé pour vos balades</p></div>
-        <div class="tmi"><div class="tmii">🛒</div><h5>Épicerie fine</h5><p>Produits locaux &amp; fabrications maison</p></div>
+  <div class="tr2 rv" style="padding:0;overflow:hidden">
+    <div class="t-slider" id="table-slider">
+      <!-- Remplacez les src par vos vraies photos de la table d'hôtes -->
+      <div class="t-slide active"><img src="images/table01.jpg" alt="Table d'hôtes — repas du soir"/></div>
+      <div class="t-slide"><img src="images/table02.jpg" alt="Table d'hôtes — produits du terroir"/></div>
+      <div class="t-slide"><img src="images/table03.jpg" alt="Table d'hôtes — ambiance conviviale"/></div>
+      <div class="t-slide"><img src="images/table04.jpg" alt="Table d'hôtes — dessert maison"/></div>
+      <div class="t-slide"><img src="images/table05.jpg" alt="Table d'hôtes — grande tablée"/></div>
+
+      <div class="t-overlay"></div>
+
+      <!-- Témoignage superposé en bas -->
+      <div class="t-caption">
+        <p class="tq">Très bon moment lors de nos 2 dîners durant nos vacances ; la cuisine est top avec de très bons produits ; rapport qualité-prix excellant dans un cadre fort agréable.</p>
+        <p class="t-caption-author">— Matt Dctr · Avis vérifié ★★★★★</p>
       </div>
-      <a href="#contact" class="btn bp" style="margin-top:.4rem;">Réserver la table</a>
+
+      <!-- Compteur -->
+      <div class="t-counter" id="t-counter">1 / 5</div>
+
+      <!-- Flèches -->
+      <button class="t-arr prev" onclick="stepTableSlide(-1)" aria-label="Photo précédente">&#8249;</button>
+      <button class="t-arr next" onclick="stepTableSlide(1)" aria-label="Photo suivante">&#8250;</button>
+
+      <!-- Dots -->
+      <div class="t-dots" id="t-dots">
+        <button class="t-dot active" onclick="goTableSlide(0)"></button>
+        <button class="t-dot" onclick="goTableSlide(1)"></button>
+        <button class="t-dot" onclick="goTableSlide(2)"></button>
+        <button class="t-dot" onclick="goTableSlide(3)"></button>
+        <button class="t-dot" onclick="goTableSlide(4)"></button>
+      </div>
     </div>
   </div>
 </div>
@@ -591,7 +630,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
     <div class="to-contact-block">
       <div class="to-contact-title">Réserver ou renseigner</div>
       <a href="tel:0581716077" class="to-contact-item"><span>📞</span><span>05 81 71 60 77</span></a>
-      <a href="mailto:contact@maisonembellie.fr" class="to-contact-item"><span>✉️</span><span>contact@maisonembellie.fr</span></a>
+      <a href="/cdn-cgi/l/email-protection#1e737f776d7170727b737c7b7272777b5e79737f7772307d7173" class="to-contact-item"><span>✉️</span><span><span class="__cf_email__" data-cfemail="5c313d352f33323039313e39303035391c3b313d3530723f3331">[email&#160;protected]</span></span></a>
     </div>
   </div>
   <div class="to-right rv">
@@ -681,9 +720,9 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
   <p class="sb">L'Embellie est un point de départ idéal pour explorer les plus beaux sites du Lot et du Cantal — certains parmi les plus spectaculaires de France.</p>
 </div>
 <div class="dfeat rv">
-  <div class="dfi" style="background:linear-gradient(135deg,#3d1f08,#6b3515);">
+  <a href="https://www.vallee-dordogne.com/rocamadour" target="_blank" rel="noopener" class="dfi" style="background:linear-gradient(135deg,#3d1f08,#6b3515);text-decoration:none;">
     <div class="dfiic">⛪</div><div class="dfin">Rocamadour</div><div class="dfid">À 34 km · ~40 min</div>
-  </div>
+  </a>
   <div class="dfb">
     <div class="sl2">Site incontournable</div><h3>Rocamadour</h3>
     <p>Cité médiévale suspendue à flanc de falaise, l'un des sites les plus visités de France. Sanctuaire marial mondialement connu, ses ruelles pavées et sa vue vertigineuse sur la vallée de l'Alzou laissent une impression impérissable.</p>
@@ -720,7 +759,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
     <div class="cds">
       <div class="cd"><div class="cdi">📍</div><div class="cdt"><h4>Adresse</h4><p>Gagnac-sur-Cère, 46130 · Lot</p></div></div>
       <div class="cd"><div class="cdi">📞</div><div class="cdt"><h4>Téléphone</h4><p>05 81 71 60 77</p></div></div>
-      <div class="cd"><div class="cdi">✉️</div><div class="cdt"><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f598949c869a9b999098979099999c90b59298949c99db969a98">[email&#160;protected]</a></p></div></div>
+      <div class="cd"><div class="cdi">✉️</div><div class="cdt"><h4>Email</h4><p><a href="/cdn-cgi/l/email-protection#ff929e968c9091939a929d9a9393969abf98929e9693d19c9092" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="e78a868e9488898b828a85828b8b8e82a7808a868e8bc984888a">[email&#160;protected]</span></a></p></div></div>
       <div class="cd"><div class="cdi">🗓️</div><div class="cdt"><h4>Saison</h4><p>Avril → Octobre · Hors saison sur demande</p></div></div>
     </div>
     <div class="ts">
@@ -772,8 +811,19 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
           </select>
         </div>
       </div>
+      <div class="fg" style="margin-top:.9rem">
+        <label for="table_ouverte">Table ouverte (week-end)</label>
+        <select id="table_ouverte" name="table_ouverte">
+          <option value="">— Pas concerné(e) —</option>
+          <option>Vendredi soir — dîner (27€/pers)</option>
+          <option>Samedi soir — dîner (27€/pers)</option>
+          <option>Dimanche midi — déjeuner (27€/pers)</option>
+          <option>Plusieurs créneaux — à préciser</option>
+        </select>
+      </div>
       <div class="fg"><label for="msg">Message</label><textarea id="msg" name="message" placeholder="Anniversaire, régimes, arrivée tardive, randonnée…"></textarea></div>
       <button type="submit" class="fsub">Envoyer ma demande ✦</button>
+      <p style="text-align:center;margin-top:1.1rem;font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.7;">Vous pouvez aussi nous écrire directement à<br><a href="mailto:maisonlembellie@gmail.com" style="color:var(--terra);font-weight:500;text-decoration:none;">maisonlembellie@gmail.com</a></p>
     </form>
     <div class="fsucc" id="fs"><div class="fsi">🌼</div><h4>Merci pour votre demande !</h4><p>Nous vous répondrons dans les 24h pour confirmer votre séjour à la Maison L'Embellie. À très bientôt dans le Lot !</p></div>
   </div>
@@ -790,7 +840,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
 <p>© 2025 Maison L'Embellie · Tous droits réservés · Booking Award 9,6/10 · 2026 · Superhôte Airbnb depuis 2024</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Navbar scroll
 const nb=document.getElementById('navbar');
 window.addEventListener('scroll',()=>nb.classList.toggle('sc',scrollY>40));
@@ -843,6 +893,49 @@ function startSlideshow(room) {
   startSlideshow(room);
 });
 
+// Table d'hôtes slideshow
+const tableSlideState = { current: 0, total: 0, timer: null };
+
+function updateTableUI() {
+  const slides = document.querySelectorAll('#table-slider .t-slide');
+  const dots   = document.querySelectorAll('#t-dots .t-dot');
+  const counter = document.getElementById('t-counter');
+  slides.forEach((s,i) => s.classList.toggle('active', i === tableSlideState.current));
+  dots.forEach((d,i)   => d.classList.toggle('active', i === tableSlideState.current));
+  if (counter) counter.textContent = (tableSlideState.current + 1) + ' / ' + tableSlideState.total;
+}
+
+function goTableSlide(idx) {
+  const slides = document.querySelectorAll('#table-slider .t-slide');
+  tableSlideState.current = (idx + slides.length) % slides.length;
+  updateTableUI();
+}
+
+function stepTableSlide(dir) {
+  clearInterval(tableSlideState.timer);
+  goTableSlide(tableSlideState.current + dir);
+  startTableSlideshow();
+}
+
+function startTableSlideshow() {
+  const slides = document.querySelectorAll('#table-slider .t-slide');
+  tableSlideState.total = slides.length;
+  if (slides.length <= 1) return;
+  tableSlideState.timer = setInterval(() => {
+    goTableSlide(tableSlideState.current + 1);
+  }, 5000);
+}
+
+// Pause au survol
+const tSlider = document.getElementById('table-slider');
+if (tSlider) {
+  tSlider.addEventListener('mouseenter', () => clearInterval(tableSlideState.timer));
+  tSlider.addEventListener('mouseleave', startTableSlideshow);
+  tableSlideState.total = document.querySelectorAll('#table-slider .t-slide').length;
+  updateTableUI();
+  startTableSlideshow();
+}
+
 document.querySelectorAll('.chphotos').forEach(el => {
   const room = el.id.replace('photos-','');
   el.addEventListener('mouseenter', () => clearInterval(slideState[room].timer));
@@ -866,32 +959,4 @@ async function handleSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('fc');
   const btn = form.querySelector('.fsub');
-  btn.textContent = 'Envoi en cours…';
-  btn.disabled = true;
-  try {
-    const res = await fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    });
-    if (res.ok) {
-      form.style.display = 'none';
-      document.getElementById('fs').style.display = 'block';
-      } else {
-      btn.textContent = 'Erreur — réessayez';
-      btn.disabled = false;
-    }
-  } catch {
-    btn.textContent = 'Erreur réseau — réessayez';
-    btn.disabled = false;
-  }
-}
-const t = new Date().toISOString().split('T')[0];
-document.getElementById('arrivee').min = t;
-document.getElementById('depart').min = t;
-document.getElementById('arrivee').addEventListener('change', function() {
-  document.getElementById('depart').min = this.value;
-});
-</script>
-</body>
-</html>
+  btn.textContent = 'Envoi e
