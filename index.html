@@ -324,8 +324,9 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
 
 @keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
-.rv.vis{opacity:1;transform:translateY(0)}
+.rv{opacity:1;transform:none}
+body.js-ok .rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+body.js-ok .rv.vis{opacity:1;transform:translateY(0)}
 
 @media(max-width:980px){
   #apropos,.ci,.tw{grid-template-columns:1fr;gap:2.5rem}
@@ -630,7 +631,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
     <div class="to-contact-block">
       <div class="to-contact-title">Réserver ou renseigner</div>
       <a href="tel:0581716077" class="to-contact-item"><span>📞</span><span>05 81 71 60 77</span></a>
-      <span class="to-contact-item" id="email-link-1"><span>✉️</span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5b363a32283435373e36393e3737323e1b3c363a323775383436">[email&#160;protected]</a></span></span>
+      <a href="mailto:maisonlembellie@gmail.com" class="to-contact-item" id="email-link-1"><span>✉️</span><span>maisonlembellie@gmail.com</span></a>
     </div>
   </div>
   <div class="to-right rv">
@@ -759,7 +760,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
     <div class="cds">
       <div class="cd"><div class="cdi">📍</div><div class="cdt"><h4>Adresse</h4><p>Gagnac-sur-Cère, 46130 · Lot</p></div></div>
       <div class="cd"><div class="cdi">📞</div><div class="cdt"><h4>Téléphone</h4><p>05 81 71 60 77</p></div></div>
-      <div class="cd"><div class="cdi">✉️</div><div class="cdt"><h4>Email</h4><p><span id="email-link-2" style="color:inherit;text-decoration:none;cursor:pointer;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2f424e465c4041434a424d4a4343464a6f48424e4643014c4042">[email&#160;protected]</a></span></p></div></div>
+      <div class="cd"><div class="cdi">✉️</div><div class="cdt"><h4>Email</h4><p><span id="email-link-2" style="color:inherit;text-decoration:none;cursor:pointer;">maisonlembellie@gmail.com</span></p></div></div>
       <div class="cd"><div class="cdi">🗓️</div><div class="cdt"><h4>Saison</h4><p>Avril → Octobre · Hors saison sur demande</p></div></div>
     </div>
     <div class="ts">
@@ -823,7 +824,7 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
       </div>
       <div class="fg"><label for="msg">Message</label><textarea id="msg" name="message" placeholder="Anniversaire, régimes, arrivée tardive, randonnée…"></textarea></div>
       <button type="submit" class="fsub">Envoyer ma demande ✦</button>
-      <p style="text-align:center;margin-top:1.1rem;font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.7;">Vous pouvez aussi nous écrire directement à<br><span id="email-link-3" style="color:var(--terra);font-weight:500;text-decoration:none;cursor:pointer;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="523f333b213d3c3e373f30373e3e3b3712353f333b3e7c313d3f">[email&#160;protected]</a></span></p>
+      <p style="text-align:center;margin-top:1.1rem;font-size:.78rem;font-weight:300;color:var(--muted);line-height:1.7;">Vous pouvez aussi nous écrire directement à<br><span id="email-link-3" style="color:var(--terra);font-weight:500;text-decoration:none;cursor:pointer;">maisonlembellie@gmail.com</span></p>
     </form>
     <div class="fsucc" id="fs"><div class="fsi">🌼</div><h4>Merci pour votre demande !</h4><p>Nous vous répondrons dans les 24h pour confirmer votre séjour à la Maison L'Embellie. À très bientôt dans le Lot !</p></div>
   </div>
@@ -840,7 +841,8 @@ footer p{font-size:.69rem;font-weight:300;color:rgba(255,255,255,.38)}
 <p>© 2025 Maison L'Embellie · Tous droits réservés · Booking Award 9,6/10 · 2026 · Superhôte Airbnb depuis 2024</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+document.body.classList.add('js-ok');
 // Navbar scroll
 const nb=document.getElementById('navbar');
 window.addEventListener('scroll',()=>nb.classList.toggle('sc',scrollY>40));
